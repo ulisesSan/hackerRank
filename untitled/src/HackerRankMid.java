@@ -7,11 +7,9 @@ public class HackerRankMid {
         boolean isIp = true;
         while (in.hasNext()) {
             String Ip = in.next();
-            int numeroIP = Ip.split("\\.").length;
             String[] ipCadena = Ip.split("\\.");
-
-            isIp = (Ip.matches(regEx.pattern()));
             try{
+                isIp = (Ip.matches(regEx.pattern()));
                 for(int i = 0; i <= ipCadena.length-1; i ++){
                     isIp = ((Integer.parseInt(ipCadena[i]) >= 0) &&
                             ((Integer.parseInt(ipCadena[i]) <= 255) && isIp &&
