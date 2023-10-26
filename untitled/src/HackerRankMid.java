@@ -8,25 +8,26 @@ public class HackerRankMid {
         while (in.hasNext()) {
             String Ip = in.next();
             int numeroIP = Ip.split("\\.").length;
-            String[] Ipcadena = Ip.split("\\.");
+            String[] ipCadena = Ip.split("\\.");
 
+            isIp = (Ip.matches(regEx.pattern()));
             try{
-
-
-                    for(int i = 0; i <= Ipcadena.length-1; i ++){
-                        isIp = (Integer.parseInt(Ipcadena[i]) >= 0) && (Integer.parseInt(Ipcadena[i]) <= 255 && (Ipcadena[i] != "0"));
-                    }
-                if (numeroIP != 4) {
-                    isIp = false;
-                    }
-                numeroIP = 0;
+                for(int i = 0; i <= ipCadena.length-1; i ++){
+                    isIp = ((Integer.parseInt(ipCadena[i]) >= 0) &&
+                            ((Integer.parseInt(ipCadena[i]) <= 255) && isIp &&
+                                    Integer.parseInt(ipCadena[i]) != 4));
+                }
             }
-
             catch(Exception ex){
                 isIp = false;
             }
-
             System.out.println(isIp);
+        }
+    }
+
+    static class regEx{
+        public static String pattern (){
+            return "([0-2]?\\d?\\d)\\.([0-2]?\\d?\\d)\\.([0-2]?\\d?\\d)\\.([0-2]?\\d?\\d)";
         }
     }
 }
